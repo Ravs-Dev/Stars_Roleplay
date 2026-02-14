@@ -1,55 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JAMATRA PRIME</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JAMATRA PRIME</title>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-<style>
-body {
-  background: #020617;
-  color: white;
-  overflow-x: hidden;
-}
+  <!-- Particles -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-/* Background Partikel */
-#particles-js {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+  <style>
+    body {
+      background: #020617;
+      color: white;
+      overflow-x: hidden;
+    }
 
-/* Animasi Profil Melayang */
-@keyframes float {
-  0% { transform: translateY(0px);}
-  50% { transform: translateY(-12px);}
-  100% { transform: translateY(0px);}
-}
+    /* Layer partikel */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
-.float {
-  animation: float 4s ease-in-out infinite;
-}
+    /* Floating profil */
+    @keyframes float {
+      0% { transform: translateY(0px);}
+      50% { transform: translateY(-12px);}
+      100% { transform: translateY(0px);}
+    }
 
-/* Glow Button */
-.glow-btn {
-  box-shadow: 0 0 15px #22d3ee;
-}
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
 
-.glow-text {
-  color: #22d3ee;
-  text-shadow: 0 0 10px #22d3ee, 0 0 20px #0ea5e9;
-}
-</style>
+    .brand-gradient {
+      background: linear-gradient(90deg,#7dd3fc,#38bdf8);
+    }
+  </style>
 </head>
 
-<body class="min-h-screen font-sans">
+<body class="min-h-screen text-slate-100 font-sans">
 
+<!-- Background Partikel -->
 <div id="particles-js"></div>
 
+<!-- HEADER -->
 <header class="w-full shadow-sm bg-black/60 backdrop-blur sticky top-0 z-40">
   <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="#" class="flex items-center gap-3">
