@@ -1,54 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JAMATRA PRIME</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JAMATRA PRIME</title>
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-  <!-- Particles -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<style>
+body {
+  background: #020617;
+  color: white;
+  overflow-x: hidden;
+}
 
-  <style>
-    body {
-      background: #020617;
-      color: white;
-      overflow-x: hidden;
-    }
+/* Background Partikel */
+#particles-js {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
 
-    /* Layer partikel */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
+/* Animasi Profil Melayang */
+@keyframes float {
+  0% { transform: translateY(0px);}
+  50% { transform: translateY(-12px);}
+  100% { transform: translateY(0px);}
+}
 
-    /* Floating profil */
-    @keyframes float {
-      0% { transform: translateY(0px);}
-      50% { transform: translateY(-12px);}
-      100% { transform: translateY(0px);}
-    }
+.float {
+  animation: float 4s ease-in-out infinite;
+}
 
-    .float {
-      animation: float 4s ease-in-out infinite;
-    }
+/* Glow Text */
+.glow-text {
+  color: #22d3ee;
+  text-shadow: 0 0 10px #22d3ee,
+               0 0 20px #0ea5e9,
+               0 0 30px #38bdf8;
+}
 
-    .brand-gradient {
-      background: linear-gradient(90deg,#7dd3fc,#38bdf8);
-    }
-  </style>
+/* Glow Button */
+.glow-btn {
+  box-shadow: 0 0 15px #22d3ee;
+}
+</style>
 </head>
 
-<body class="min-h-screen text-slate-100 font-sans">
+<body class="min-h-screen font-sans">
 
-<!-- Background Partikel -->
 <div id="particles-js"></div>
 
-<!-- HEADER -->
 <header class="w-full shadow-sm bg-black/60 backdrop-blur sticky top-0 z-40">
   <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="#" class="flex items-center gap-3">
@@ -183,20 +187,11 @@
   </div>
 </footer>
 
+<!-- PARTICLES SCRIPT -->
 <script>
-function toggleMenu(){
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-  sidebar.classList.toggle("-translate-x-full");
-  overlay.classList.toggle("hidden");
-}
-
-document.getElementById('year').textContent = new Date().getFullYear();
-
-/* Partikel background */
 particlesJS("particles-js", {
   particles: {
-    number: { value: 50 },
+    number: { value: 60 },
     size: { value: 3 },
     move: { speed: 1.5 },
     line_linked: {
