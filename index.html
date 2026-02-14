@@ -18,7 +18,6 @@
       overflow-x: hidden;
     }
 
-    /* Layer partikel */
     #particles-js {
       position: fixed;
       width: 100%;
@@ -26,7 +25,6 @@
       z-index: -1;
     }
 
-    /* Floating profil */
     @keyframes float {
       0% { transform: translateY(0px);}
       50% { transform: translateY(-12px);}
@@ -40,12 +38,26 @@
     .brand-gradient {
       background: linear-gradient(90deg,#7dd3fc,#38bdf8);
     }
+
+    /* Glow effect */
+    .glow {
+      text-shadow:
+        0 0 5px #38bdf8,
+        0 0 10px #38bdf8,
+        0 0 20px #0ea5e9;
+    }
+
+    .glow-strong {
+      text-shadow:
+        0 0 10px #38bdf8,
+        0 0 20px #38bdf8,
+        0 0 40px #0ea5e9;
+    }
   </style>
 </head>
 
 <body class="min-h-screen text-slate-100 font-sans">
 
-<!-- Background Partikel -->
 <div id="particles-js"></div>
 
 <!-- HEADER -->
@@ -54,28 +66,28 @@
     <a href="#" class="flex items-center gap-3">
       <img src="profile.png" alt="Ravens Logo" class="w-10 h-10 rounded-full border border-slate-200">
       <div>
-        <div class="text-lg font-semibold text-white">JAMATRA PRIME</div>
+        <div class="text-lg font-semibold text-white glow">JAMATRA PRIME</div>
         <div class="text-xs text-slate-400">Server & Community</div>
       </div>
     </a>
 
     <!-- Tombol garis tiga -->
-    <button onclick="toggleMenu()" class="text-2xl md:hidden">
+    <button onclick="toggleMenu()" class="text-2xl md:hidden glow">
       ☰
     </button>
 
     <!-- Menu desktop -->
     <nav class="space-x-4 hidden md:block">
-      <a href="#about" class="text-sm hover:text-sky-300">About</a>
-      <a href="#projects" class="text-sm hover:text-sky-300">My Project</a>
-      <a href="#contact" class="text-sm hover:text-sky-300">Contact</a>
+      <a href="#about" class="text-sm hover:text-sky-300 glow">About</a>
+      <a href="#projects" class="text-sm hover:text-sky-300 glow">My Project</a>
+      <a href="#contact" class="text-sm hover:text-sky-300 glow">Contact</a>
     </nav>
   </div>
 </header>
 
 <!-- Sidebar -->
 <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-black/90 backdrop-blur p-6 transform -translate-x-full transition duration-300 z-50">
-  <h2 class="text-xl font-bold mb-6">Menu</h2>
+  <h2 class="text-xl font-bold mb-6 glow-strong">Menu</h2>
   <a href="index.html" class="block py-3 border-b border-slate-700">🏠 Beranda</a>
   <a href="topup.html" class="block py-3 border-b border-slate-700">💎 Top Up SA-MP</a>
   <a href="https://discord.gg/QxqrFW6SAW" class="block py-3">💬 Join Discord</a>
@@ -87,7 +99,7 @@
 <section class="py-20">
   <div class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
     <div>
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-white">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-white glow-strong">
         Selamat datang di <span class="text-sky-300">JAMATRA</span> PRIME
       </h1>
       <p class="mt-4 text-slate-200">
@@ -100,7 +112,6 @@
       </div>
     </div>
 
-    <!-- PROFIL MELAYANG -->
     <div class="p-6 rounded-2xl bg-white/10 shadow-md flex flex-col items-center">
       <img src="profile.png"
            alt="Foto Profil"
@@ -112,69 +123,37 @@
   </div>
 </section>
 
- <section id="about" class="py-12 bg-black/40">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-2xl font-bold text-white">Tentang Ravens</h2>
-      <p class="mt-3 text-slate-200">JAMATRA adalah proyek komunitas roleplay yang dikelola oleh tim JAMATRA. Di sini kami menyediakan tempat berkumpul pemain, event seru, dan media sosial resmi untuk mengikuti update. Pada bagian <strong>My Project</strong> kamu akan menemukan tautan penting: tempat masuk Discord resmi JAMATRA, tautan ke TikTok milik creator, dan Instagram resmi JAMATRA.</p>
-      <div class="mt-6 grid md:grid-cols-3 gap-4">
-        <a href=" https://discord.gg/QxqrFW6SAW" class="block bg-white/10 p-6 rounded-lg shadow-sm hover:bg-sky-600/40 transition">
-          <h3 class="font-semibold text-white">Discord JAMATRA</h3>
-          <p class="text-sm text-slate-200 mt-2">Tempat komunitas berkumpul — chat, event, dan support.</p>
-          <div class="mt-3 px-3 py-2 bg-green-500 rounded-md inline-block text-white">Join</div>
-        </a>
-        <a href="https://www.tiktok.com/@ravszz_" target="_blank" class="block bg-white/10 p-6 rounded-lg shadow-sm hover:bg-sky-600/40 transition">
-          <h3 class="font-semibold text-white">TikTok Creator</h3>
-          <p class="text-sm text-slate-200 mt-2">Konten video & promosi. Ikuti untuk update singkat.</p>
-          <div class="mt-3 px-3 py-2 bg-sky-500 rounded-md inline-block text-white">Lihat</div>
-        </a>
-        <a href="https://www.youtube.com/@ravszz_/videos" target="_blank" class="block bg-white/10 p-6 rounded-lg shadow-sm hover:bg-sky-600/40 transition">
-          <h3 class="font-semibold text-white">You tube JAMATRA</h3>
-          <p class="text-sm text-slate-200 mt-2">Follow Akun Jamatra, Konten video & promosi. Ikuti untuk update</p>
-          <div class="mt-3 px-3 py-2 bg-pink-500 rounded-md inline-block text-white">Follow</div>
-        </a>
-      </div>
+<!-- ABOUT -->
+<section id="about" class="py-12 bg-black/40">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-2xl font-bold text-white glow">Tentang Ravens</h2>
+    <p class="mt-3 text-slate-200">
+      JAMATRA adalah proyek komunitas roleplay yang dikelola oleh tim JAMATRA.
+    </p>
+  </div>
+</section>
+
+<!-- PROJECT -->
+<section id="projects" class="py-12">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-2xl font-bold text-white glow">My Project</hh2>
+    <div class="mt-6 grid md:grid-cols-3 gap-6">
+
+      <a href="https://saweria.co/ravs" class="block p-6 bg-white/10 rounded-xl">
+        <h3 class="font-semibold text-white">Saweria</h3>
+      </a>
+
+      <a href="https://ravs-dev.github.io/Website-Hosting/" class="block p-6 bg-white/10 rounded-xl">
+        <h3 class="font-semibold text-white">Hosting</h3>
+      </a>
+
+      <a href="https://www.instagram.com/ravszz_/" class="block p-6 bg-white/10 rounded-xl">
+        <h3 class="font-semibold text-white">Instagram</h3>
+      </a>
+
     </div>
-  </section>
-
-  <section id="projects" class="py-12">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-2xl font-bold text-white">My Project</h2>
-      <p class="mt-2 text-slate-200">Tiga tautan utama yang penting untuk komunitas dan promosi.</p>
-
-      <div class="mt-6 grid md:grid-cols-3 gap-6">
-        <a href="https://saweria.co/ravs" class="block p-6 bg-white/10 rounded-xl shadow-md hover:bg-sky-600/40 transition">
-          <div class="flex items-start gap-3">
-            <div class="w-12 h-12 rounded-lg brand-gradient flex items-center justify-center text-white">D</div>
-            <div>
-              <h3 class="font-semibold text-white">Saweria</h3>
-              <p class="text-sm text-slate-200 mt-1">Saweria Jamatra Tautan Untuk Sawer Server</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://ravs-dev.github.io/Website-Hosting/" target="_blank" class="block p-6 bg-white/10 rounded-xl shadow-md hover:bg-sky-600/40 transition">
-          <div class="flex items-start gap-3">
-            <div class="w-12 h-12 rounded-lg brand-gradient flex items-center justify-center text-white">T</div>
-            <div>
-              <h3 class="font-semibold text-white">Hosting And Jasa Script/Membuat Website</h3>
-              <p class="text-sm text-slate-200 mt-1">Mejual Hosting Samp, Minecraft, Bot Js, And Jasa Dev/Membuat Website</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/ravszz_/" target="_blank" class="block p-6 bg-white/10 rounded-xl shadow-md hover:bg-sky-600/40 transition">
-          <div class="flex items-start gap-3">
-            <div class="w-12 h-12 rounded-lg brand-gradient flex items-center justify-center text-white">I</div>
-            <div>
-              <h3 class="font-semibold text-white">Instagram</h3>
-              <p class="text-sm text-slate-200 mt-1">Follow Instagram resmi Jamatra untuk pengumuman & visual.</p>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-  
+  </div>
+</section>
 
 <!-- FOOTER -->
 <footer id="contact" class="py-8 bg-black/50 border-t border-slate-700">
@@ -183,8 +162,17 @@
   </div>
 </footer>
 
-<!-- PARTICLES SCRIPT -->
 <script>
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  sidebar.classList.toggle("-translate-x-full");
+  overlay.classList.toggle("hidden");
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
 particlesJS("particles-js", {
   particles: {
     number: { value: 60 },
