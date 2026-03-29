@@ -183,10 +183,21 @@ Mohon diproses.`;
   window.open(url, "_blank");
 }
 
-/* Partikel background */
+<!-- SCRIPT -->
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  sidebar.classList.toggle("-translate-x-full");
+  overlay.classList.toggle("hidden");
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
 particlesJS("particles-js", {
   particles: {
-    number: { value: 50 },
+    number: { value: 60 },
     size: { value: 3 },
     move: { speed: 1.5 },
     line_linked: {
