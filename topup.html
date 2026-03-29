@@ -183,31 +183,32 @@ Mohon diproses.`;
   window.open(url, "_blank");
 }
 
-<!-- SCRIPT -->
-<script>
-function toggleMenu() {
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
+  window.toggleMenu = function(){
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
 
-  sidebar.classList.toggle("-translate-x-full");
-  overlay.classList.toggle("hidden");
-}
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-particlesJS("particles-js", {
-  particles: {
-    number: { value: 60 },
-    size: { value: 3 },
-    move: { speed: 1.5 },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: "#22d3ee",
-      opacity: 0.3
-    },
-    color: { value: "#22d3ee" }
+    sidebar.classList.toggle("-translate-x-full");
+    overlay.classList.toggle("hidden");
   }
+
+  // 🔥 particles aman (dicek dulu biar gak error)
+  if (typeof particlesJS !== "undefined") {
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60 },
+        size: { value: 3 },
+        move: { speed: 1.5 },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: "#22d3ee",
+          opacity: 0.3
+        },
+        color: { value: "#22d3ee" }
+      }
+    });
+  }
+
 });
 </script>
 
