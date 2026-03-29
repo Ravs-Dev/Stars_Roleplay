@@ -6,7 +6,9 @@
 <title>Top Up SA-MP</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<!-- CDN PARTICLES YANG BENER -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <style>
 body {
@@ -15,7 +17,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Background partikel */
 #particles-js {
   position: fixed;
   width: 100%;
@@ -23,7 +24,10 @@ body {
   z-index: -1;
 }
 
-/* Teks glow biru */
+.glow {
+  text-shadow: 0 0 5px #38bdf8, 0 0 10px #38bdf8, 0 0 20px #0ea5e9;
+}
+
 .glow-text {
   color: #22d3ee;
   text-shadow: 0 0 10px #22d3ee, 0 0 20px #0ea5e9;
@@ -33,66 +37,59 @@ body {
 
 <body class="min-h-screen font-sans">
 
-<!-- Partikel background -->
+<!-- BACKGROUND -->
 <div id="particles-js"></div>
 
+<!-- HEADER -->
 <header class="bg-black/70 p-4 flex justify-between items-center border-b border-cyan-400">
   <h1 class="text-xl font-bold glow-text">DONATE SA-MP</h1>
-  <a href="index.html" class="text-sm bg-sky-500 px-3 py-1 rounded">Kembali</a>
-  <a onclick="toggleMenu()" class="text-sm hover:text-sky-300 glow">☰</a>
 
+  <button onclick="toggleMenu()" class="text-2xl glow">
+    ☰
+  </button>
+</header>
 
-  <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-black/90 backdrop-blur p-6 transform -translate-x-full transition duration-300 z-50">
+<!-- SIDEBAR -->
+<div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-black/90 backdrop-blur p-6 transform -translate-x-full transition duration-300 z-50">
   <h2 class="text-xl font-bold mb-6 glow">Menu</h2>
   <a href="index.html" class="block py-3 border-b border-slate-700">🏠 Beranda</a>
   <a href="topup.html" class="block py-3 border-b border-slate-700">💎 Top Up SA-MP</a>
-  <a href="https://discord.gg/QxqrFW6SAW" class="block py-3">💬 Join Discord</a>
 </div>
 
+<!-- OVERLAY -->
 <div id="overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/50 hidden z-40"></div>
-</header>
 
-<!-- Input Nama IC -->
+<!-- INPUT -->
 <section class="p-4">
   <label class="text-sm text-slate-300 glow-text">Masukkan Nama IC</label>
-  <input id="namaIC" type="text" placeholder="Contoh: Kleren_McDeren"
+  <input id="namaIC" type="text"
     class="w-full mt-2 p-3 rounded-lg bg-slate-800 border border-slate-600">
 </section>
 
-<!-- Kategori -->
+<!-- KATEGORI -->
 <section class="p-4 grid grid-cols-2 md:grid-cols-3 gap-4">
 
-<button onclick="showKategori('karakter')" class="bg-blue-600 p-4 rounded-xl">
-🧍 Karakter
-</button>
-
-<button onclick="showKategori('kendaraan')" class="bg-green-600 p-4 rounded-xl">
-🚗 Kendaraan
-</button>
-
-<button onclick="showKategori('rumah')" class="bg-yellow-600 p-4 rounded-xl">
-🏠 Rumah
-</button>
-
-<button onclick="showKategori('bisnis')" class="bg-purple-600 p-4 rounded-xl">
-🏢 Bisnis
-</button>
-
-<button onclick="showKategori('workshop')" class="bg-red-600 p-4 rounded-xl">
-🔧 Workshop
-</button>
-
-<button onclick="showKategori('garasi')" class="bg-cyan-600 p-4 rounded-xl">
-🚘 Garasi
-</button>
+<button onclick="showKategori('karakter')" class="bg-blue-600 p-4 rounded-xl">Karakter</button>
+<button onclick="showKategori('kendaraan')" class="bg-green-600 p-4 rounded-xl">Kendaraan</button>
+<button onclick="showKategori('rumah')" class="bg-yellow-600 p-4 rounded-xl">Rumah</button>
+<button onclick="showKategori('bisnis')" class="bg-purple-600 p-4 rounded-xl">Bisnis</button>
+<button onclick="showKategori('workshop')" class="bg-red-600 p-4 rounded-xl">Workshop</button>
+<button onclick="showKategori('garasi')" class="bg-cyan-600 p-4 rounded-xl">Garasi</button>
 
 </section>
 
-<!-- Produk -->
+<!-- PRODUK -->
 <section id="produk" class="p-4 grid grid-cols-2 md:grid-cols-3 gap-4"></section>
 
 <script>
-const waAdmin = "6285123263221"; // GANTI NOMOR ADMIN
+// ================= MENU =================
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("-translate-x-full");
+  document.getElementById("overlay").classList.toggle("hidden");
+}
+
+// ================= DATA =================
+const waAdmin = "6285123263221";
 
 const dataProduk = {
   karakter: [
@@ -100,36 +97,27 @@ const dataProduk = {
     {nama: "Slot Karakter 3", harga: 35000},
     {nama: "Slot Karakter 4", harga: 50000}
   ],
-
   kendaraan: [
     {nama: "Sultan", harga: 80000},
-    {nama: "Infernus", harga: 150000},
-    {nama: "NRG-500", harga: 70000}
+    {nama: "Infernus", harga: 150000}
   ],
-
   rumah: [
     {nama: "Rumah Kecil", harga: 60000},
-    {nama: "Rumah Sedang", harga: 120000},
     {nama: "Rumah Mewah", harga: 250000}
   ],
-
   bisnis: [
     {nama: "Warung", harga: 100000},
-    {nama: "Bengkel", harga: 180000},
     {nama: "Restoran", harga: 300000}
   ],
-
   workshop: [
-    {nama: "Workshop Basic", harga: 90000},
-    {nama: "Workshop Pro", harga: 200000}
+    {nama: "Workshop Basic", harga: 90000}
   ],
-
   garasi: [
-    {nama: "Garasi 2 Slot", harga: 40000},
-    {nama: "Garasi 5 Slot", harga: 90000}
+    {nama: "Garasi 2 Slot", harga: 40000}
   ]
 };
 
+// ================= PRODUK =================
 function showKategori(kategori){
   const container = document.getElementById("produk");
   container.innerHTML = "";
@@ -139,8 +127,7 @@ function showKategori(kategori){
       <div class="bg-white/10 p-4 rounded-xl text-center border border-cyan-400">
         <h3 class="font-semibold glow-text">${item.nama}</h3>
         <p class="text-sm mt-2">Rp ${item.harga.toLocaleString()}</p>
-        <button 
-          onclick="beli('${item.nama}', ${item.harga})"
+        <button onclick="beli('${item.nama}', ${item.harga})"
           class="mt-3 bg-green-500 px-3 py-1 rounded">
           Beli
         </button>
@@ -149,6 +136,7 @@ function showKategori(kategori){
   });
 }
 
+// ================= BELI =================
 function beli(nama, harga){
   const namaIC = document.getElementById("namaIC").value;
 
@@ -157,8 +145,7 @@ function beli(nama, harga){
     return;
   }
 
-  const pesan = 
-`Halo Admin, saya mau beli:
+  const pesan = `Halo Admin, saya mau beli:
 
 Nama IC: ${namaIC}
 Item: ${nama}
@@ -166,37 +153,26 @@ Harga: Rp ${harga.toLocaleString()}
 
 Mohon diproses.`;
 
-  const url = `https://wa.me/${waAdmin}?text=${encodeURIComponent(pesan)}`;
-  window.open(url, "_blank");
+  window.open(`https://wa.me/${waAdmin}?text=${encodeURIComponent(pesan)}`);
 }
 
-  window.toggleMenu = function(){
-    const sidebar = document.getElementById("sidebar");
-    const overlay = document.getElementById("overlay");
-
-    sidebar.classList.toggle("-translate-x-full");
-    overlay.classList.toggle("hidden");
-  }
-
-  // 🔥 particles aman (dicek dulu biar gak error)
-  if (typeof particlesJS !== "undefined") {
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 60 },
-        size: { value: 3 },
-        move: { speed: 1.5 },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#22d3ee",
-          opacity: 0.3
-        },
-        color: { value: "#22d3ee" }
-      }
-    });
-  }
-
-});
+// ================= PARTICLES =================
+window.onload = function(){
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 80 },
+      size: { value: 3 },
+      move: { speed: 2 },
+      line_linked: {
+        enable: true,
+        distance: 150,
+        color: "#22d3ee",
+        opacity: 0.4
+      },
+      color: { value: "#22d3ee" }
+    }
+  });
+}
 </script>
 
 </body>
