@@ -39,6 +39,15 @@ body {
 <header class="bg-black/70 p-4 flex justify-between items-center border-b border-cyan-400">
   <h1 class="text-xl font-bold glow-text">DONATE SA-MP</h1>
   <a href="index.html" class="text-sm bg-sky-500 px-3 py-1 rounded">Kembali</a>
+
+  <div id="sidebar" class="fixed top-0 left-0 w-64 h-full bg-black/90 backdrop-blur p-6 transform -translate-x-full transition duration-300 z-50">
+  <h2 class="text-xl font-bold mb-6 glow">Menu</h2>
+  <a href="index.html" class="block py-3 border-b border-slate-700">🏠 Beranda</a>
+  <a href="topup.html" class="block py-3 border-b border-slate-700">💎 Top Up SA-MP</a>
+  <a href="https://discord.gg/QxqrFW6SAW" class="block py-3">💬 Join Discord</a>
+</div>
+
+<div id="overlay" onclick="toggleMenu()" class="fixed inset-0 bg-black/50 hidden z-40"></div>
 </header>
 
 <!-- Input Nama IC -->
