@@ -1,5 +1,48 @@
 document.addEventListener("DOMContentLoaded",()=>{
 
+const playBtn = document.getElementById("playBtn");
+
+if(playBtn){
+
+    playBtn.addEventListener("click", () => {
+
+        const loading =
+        document.getElementById("loadingScreen");
+
+        const progress =
+        document.getElementById("progress");
+
+        const percent =
+        document.getElementById("percent");
+
+        loading.style.display = "flex";
+
+        let value = 0;
+
+        const interval = setInterval(() => {
+
+            value++;
+
+            progress.style.width =
+            value + "%";
+
+            percent.innerText =
+            value + "%";
+
+            if(value >= 100){
+
+                clearInterval(interval);
+
+                window.location.href =
+                "dashbord.html";
+            }
+
+        }, 25);
+
+    });
+
+}
+
 const card =
 document.querySelector(".hero-card");
 
