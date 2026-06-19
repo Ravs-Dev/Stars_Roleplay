@@ -24,13 +24,62 @@
             New Generation Roleplay Server
         </p>
 
-        <button class="btn-glow">
+        <button class="btn-glow" id="playBtn">
             PLAY NOW
         </button>
 
     </div>
 
 </div>
+
+<div id="loadingScreen">
+
+    <div class="loader-box">
+
+        <h2>Loading Dashboard...</h2>
+
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <span id="percent">0%</span>
+
+    </div>
+
+</div>
+
+<script>
+
+const playBtn = document.getElementById("playBtn");
+
+playBtn.addEventListener("click", () => {
+
+    const loading = document.getElementById("loadingScreen");
+    const progress = document.getElementById("progress");
+    const percent = document.getElementById("percent");
+
+    loading.style.display = "flex";
+
+    let value = 0;
+
+    const interval = setInterval(() => {
+
+        value++;
+
+        progress.style.width = value + "%";
+        percent.innerText = value + "%";
+
+        if(value >= 100){
+
+            clearInterval(interval);
+
+            window.location.href = "dashbord.html";
+
+        }
+
+    }, 25);
+
+});
 
 <script src="script.js"></script>
 
