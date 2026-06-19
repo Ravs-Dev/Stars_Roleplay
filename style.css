@@ -1,0 +1,19 @@
+.hero-card{
+    width:800px;
+    margin:auto;
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.05);
+    transition:.2s;
+    transform-style:preserve-3d;
+}
+
+.logo{
+    width:220px;
+}
+
+body{
+    background:#050816;
+    overflow-x:hidden;
+}
