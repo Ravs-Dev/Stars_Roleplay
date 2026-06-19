@@ -1,12 +1,7 @@
-// ========================================
-// STARS ROLEPLAY 3D EFFECT
-// ========================================
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // =========================
-    // HERO CARD 3D
-    // =========================
 
     const card = document.querySelector(".hero-card");
 
